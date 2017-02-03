@@ -96,9 +96,6 @@ class Bricks(object):
             bricks_copy.append(brick)
         return bricks_copy
 
-    def initialize_bricks(self):
-        self.construct_bricks()
-
     def remove_brick(self, brick):
         print self
         print self.getBricks()

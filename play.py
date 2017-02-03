@@ -13,13 +13,10 @@ Their classes are defined in models.py.
 Most of your work on this assignment will be in either this module or models.py.
 Whether a helper method belongs in this module or models.py is often a complicated
 issue.  If you do not know, ask on Piazza and we will answer."""
-from bricks import *
+from bricks import Bricks
+
 # future: import paddle
 # future: import ball
-
-from constants import *
-from game2d import *
-from models import *
 
 
 # PRIMARY RULE: Play can only access attributes in models.py via getters/setters
@@ -74,7 +71,7 @@ class Play(object):
         # call the constructor for the Bricks object. Call the instance bricks_object
         bricks_object = Bricks()
         # In this Bricks instance, run intialize_bricks(). Should create bricks list
-        bricks_object.initialize_bricks()
+        bricks_object.construct_bricks()
         self.setBricks(bricks_object.getBricks())
 
     def setBricks(self, bricks):

@@ -11,8 +11,7 @@ post a question on Piazza."""
 
 from constants import *
 from game2d import *
-from play import *
-from bricks import *
+from play import Play
 
 
 # PRIMARY RULE: Breakout can only access attributes in play.py via getters/setters
@@ -100,7 +99,7 @@ class Breakout(GameApp):
         #    self._mssg = None
         #    print 'wiped out welcome_message'
     
-    def update(self,dt):
+    def update(self, dt):
         """Animates a single frame in the game.
         
         It is the method that does most of the work. It is NOT in charge of playing the
@@ -161,13 +160,34 @@ class Breakout(GameApp):
         """
 
 
+        """
+        Gameply logic happens here
+
+        STATE_INACTIVE  = 0
+        #: state when we are initializing a new game
+        STATE_NEWGAME   = 1
+        #: state when we are counting down to the ball serve
+        STATE_COUNTDOWN = 2
+        #: state when we are waiting for user to click the mouse
+        STATE_PAUSED    = 3
+        #: state when the ball is in play and being animated
+        STATE_ACTIVE    = 4
+        #: state when either the player has lost all lives, or all bricks are eliminated
+        STATE_COMPLETE  = 5
+
+        """
         self.determine_state()
         #if self._state == STATE_INACTIVE:
             #print 'state is STATE_INACTIVE, calling self.start()'
             #self.start()
+
         if self._state == STATE_NEWGAME:
+            '''
+            create a play instance
+            '''
             print 'state is STATE_NEWGAME, calling self.newgame()'
             self.newgame()
+            self.setState(STATE_COUNTDOWN)
         elif self._state == STATE_COUNTDOWN:
             self.countdown()
         elif self._state == STATE_ACTIVE:
@@ -227,6 +247,13 @@ class Breakout(GameApp):
         self.previous_number_of_keys_pressed = number_of_keys_pressed
 
     def newgame(self):
+        '''
+        clear screen
+        create new play instance
+        initialize play instance -> create bricks, draw self
+
+        :return: None
+        '''
         print 'setting message to None'
         self.setMessage(None)
         print 'self._mssg == ' + str(self.getMessage())
@@ -235,5 +262,3 @@ class Breakout(GameApp):
         print 'new Play object created & saved in self._game'
         self._game.create_bricks()
         self._game.draw_play(self.view)
-        self.setState(self._state + 1 % NUMBER_OF_STATES)
-
