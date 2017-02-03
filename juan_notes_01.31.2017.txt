@@ -1,0 +1,4 @@
+Next: go to Bricks and look at it
+
+- instead of pass for undefined methods, use raise exception to account for unimplemented methods
+- for get methods that return a copy, need to run set after the changes are made

@@ -1,0 +1,5 @@
+1/22/2017 nighttime notes
+
+- I have the number_of_keys_pressed thing in breakout > state correct, as far as I can tell.
+- Still need to figure out where to put last_keys. How do I store something from the previous run of update? I think the variable will be assigned a value wherever update is being repeatedly called from, which I don’t have in place yet.
+- I need to more closely parallel the state.py file with the update method and handling input
