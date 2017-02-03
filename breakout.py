@@ -238,21 +238,21 @@ class Breakout(GameApp):
         self.setState(self._state + 1 % NUMBER_OF_STATES)
 
     def active(self):
-        pass
+        raise Exception('Not Implemented')
 
     def countdown(self):
         """Should last 180 frames, or 3 seconds. Initialize a timer, but not here. Don't wait until a
         helper method to initialize to avoid resetting the timer every frame (this is the helper method)
         This state should be entered right after creating the frames and
         paddle. After this is executed, call serve_ball and enter state_active."""
-        pass
+        raise Exception('Not Implemented')
 
     def paused(self):
-        pass
+        raise Exception('Not Implemented')
 
     def complete(self):
-        pass
+        raise Exception('Not Implemented')
 
     def game(self):
         """The controller for a single game. Manages ball, paddle, and bricks."""
-        pass
+        raise Exception('Not Implemented')
