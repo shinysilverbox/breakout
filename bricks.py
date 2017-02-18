@@ -90,15 +90,15 @@ class Bricks(object):
         return self.bricks
 
     def getBricks(self):
-        print 'self.bricks type is ' + str(type(self.bricks))
+        # print 'self.bricks type is ' + str(type(self.bricks))
         bricks_copy = []
         for brick in self.bricks:
             bricks_copy.append(brick)
         return bricks_copy
 
     def remove_brick(self, brick):
-        print self
-        print self.getBricks()
+        # print self
+        # print self.getBricks()
         self.bricks.remove(brick)
 
 

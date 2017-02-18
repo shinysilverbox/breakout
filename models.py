@@ -63,7 +63,7 @@ class Brick(GRectangle):
     LIST MORE ATTRIBUTES (AND THEIR INVARIANTS) HERE IF NECESSARY
     """
     def __init__(self, xx, yy, color_string):
-        print 'color_string == ' + str(color_string) + ", type is " + str(type(color_string))
+        # print 'color_string == ' + str(color_string) + ", type is " + str(type(color_string))
         if color_string == 'red':
             #color = [1,0,0,1]
             color = colormodel.RED
@@ -79,7 +79,7 @@ class Brick(GRectangle):
         if color_string == 'cyan':
             #color = [0,1,1,1]
             color = colormodel.BLUE
-        print 'color == ' + str(color) + ", type is " + str(type(color))
+        # print 'color == ' + str(color) + ", type is " + str(type(color))
         # removed width = BRICK_WIDTH and height = BRICK_HEIGHT because they're not attributes of GObject
         # also removed linecolor=color just in case GObject's __init__ has to have the same number of arguments as the one it's nested inside
         GObject.__init__(self, x=xx, y=yy, width=BRICK_WIDTH, height=BRICK_HEIGHT, fillcolor=color, linecolor=color)

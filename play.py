@@ -78,7 +78,7 @@ class Play(object):
         self._bricks = bricks
 
     def getBricks_play(self):
-        print 'self._bricks type is ' + str(type(self._bricks))
+        # print 'self._bricks type is ' + str(type(self._bricks))
         bricks_copy = []
         for brick in self._bricks:
             bricks_copy.append(brick)
@@ -122,8 +122,8 @@ class Play(object):
         raise Exception('Not implemented')
 
     def draw_play(self, breakout_view):
-        print 'view parameter passed to Play draw method is' + str(breakout_view)
-        print 'type(self.getBricks_play()) == ' + str(type(self.getBricks_play()))
+        # print 'view parameter passed to Play draw method is' + str(breakout_view)
+        # print 'type(self.getBricks_play()) == ' + str(type(self.getBricks_play()))
         fetched_bricks = self.getBricks_play()
         for brick in fetched_bricks:
             brick.draw(breakout_view)

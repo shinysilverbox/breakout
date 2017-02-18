@@ -86,7 +86,7 @@ class Breakout(GameApp):
         This method should make sure that all of the attributes satisfy the given 
         invariants. When done, it sets the _state to STATE_INACTIVE and creates a message 
         (in attribute _mssg) saying that the user should press a key to play a game."""
-        print 'running start method'
+        # print 'running start method'
         self._game = None
         self._state = STATE_INACTIVE
         self.previous_number_of_keys_pressed = 0
@@ -94,7 +94,7 @@ class Breakout(GameApp):
 
         #if self._state == STATE_INACTIVE:
         self._mssg = GLabel(text='Press any key to play', font_size = 24, font_name = 'Colfax-Regular.otf', x = 240, y = 310)
-        print 'assigned %s' % self._mssg
+        # print 'assigned %s' % self._mssg
         #else:
         #    self._mssg = None
         #    print 'wiped out welcome_message'
@@ -185,7 +185,7 @@ class Breakout(GameApp):
             '''
             create a play instance
             '''
-            print 'state is STATE_NEWGAME, calling self.newgame()'
+            # print 'state is STATE_NEWGAME, calling self.newgame()'
             self.newgame()
             self.setState(STATE_COUNTDOWN)
         elif self._state == STATE_COUNTDOWN:
@@ -233,17 +233,17 @@ class Breakout(GameApp):
         # TODO: think about the state model. Progressing through states is not always linear
 
         number_of_keys_pressed = self.input.key_count
-        if number_of_keys_pressed > 0:
-            print 'number_of_keys_pressed == ' + str(number_of_keys_pressed)
+        # if number_of_keys_pressed > 0:
+        #     print 'number_of_keys_pressed == ' + str(number_of_keys_pressed)
         # True if at least 1 key was pressed in this frame, and no keys were pressed in the last frame
         keys_have_been_pressed = number_of_keys_pressed > 0 and self.previous_number_of_keys_pressed == 0
         # situation 1: program launch + key press. Starts at STATE_INACTIVE. If key pressed, go to STATE_NEWGAME.
         if keys_have_been_pressed:
-            print 'key input received; moving to next state'
+            # print 'key input received; moving to next state'
             # use a setter here
             # TODO: BUG; account for nonlinear state progression
             self._state = (self._state + 1 % NUMBER_OF_STATES)
-            print 'new state is ' + str(self._state)
+            # print 'new state is ' + str(self._state)
         self.previous_number_of_keys_pressed = number_of_keys_pressed
 
     def newgame(self):
@@ -254,11 +254,11 @@ class Breakout(GameApp):
 
         :return: None
         '''
-        print 'setting message to None'
+        # print 'setting message to None'
         self.setMessage(None)
-        print 'self._mssg == ' + str(self.getMessage())
-        print 'executing newgame method'
+        # print 'self._mssg == ' + str(self.getMessage())
+        # print 'executing newgame method'
         self._game = Play()
-        print 'new Play object created & saved in self._game'
+        # print 'new Play object created & saved in self._game'
         self._game.create_bricks()
         self._game.draw_play(self.view)
